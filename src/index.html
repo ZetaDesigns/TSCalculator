@@ -11,21 +11,25 @@
     <script type="module" src="../dist/index.js"></script>
 </head>
 <body class="text-center">
-<main class="container-sm" role="main">
-    <h1>Taschenrechner</h1>
+<h1>Taschenrechner</h1>
 
-    <div class="container" style="max-width: 35%">
-        <div class="form-group">
-            <label for="num1">Zahl 1</label><input type="number" class="form-control" id="num1"/>
-            <label for="num2">Zahl 2</label><input type="number" class="form-control" id="num2"/>
+<div class="container" style="max-width: 35%">
+    <div class="form-group">
+        <label class="text-start" for="num1">X:</label><input type="number" class="form-control" id="num1"/>
+        <label class="text-start" for="num2">Y:</label><input type="number" class="form-control" id="num2"/>
 
-            <input type="button" class="btn btn-primary" id="addButton" value="+">
-            <input type="button" class="btn btn-primary" id="subButton" value="-">
-            <input type="button" class="btn btn-primary" id="mulButton" value="*">
-            <input type="button" class="btn btn-primary" id="divButton" value="/">
-        </div>
-        <label for="output">Ausgabe: </label><div class="h2" id="output"></div>
+        <input type="button" class="btn btn-primary" id="addButton" value="x+y">
+        <input type="button" class="btn btn-primary" id="subButton" value="x-y">
+        <input type="button" class="btn btn-primary" id="mulButton" value="x*y">
+        <input type="button" class="btn btn-primary" id="divButton" value="x/y">
+        <input type="button" class="btn btn-primary" id="powButton" value="x^y">
+        <input type="button" class="btn btn-primary" id="eulButton" value="e(x)">
+        <input type="button" class="btn btn-primary" id="facButton" value="x!">
+        <input type="button" class="btn btn-primary" id="primeButton" value="prime(x)">
+
     </div>
-</main>
+    <label for="output">Ausgabe: </label>
+    <div class="h2" id="output"></div>
+</div>
 </body>
 </html>

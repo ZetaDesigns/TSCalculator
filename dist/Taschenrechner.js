@@ -5,7 +5,7 @@ export var Operations;
     Operations[Operations["Multiply"] = 2] = "Multiply";
     Operations[Operations["Divide"] = 3] = "Divide";
     Operations[Operations["Power"] = 4] = "Power";
-    Operations[Operations["Faculty"] = 5] = "Faculty";
+    Operations[Operations["Factorial"] = 5] = "Factorial";
     Operations[Operations["Euler"] = 6] = "Euler";
     Operations[Operations["Prime"] = 7] = "Prime";
 })(Operations || (Operations = {}));
@@ -22,12 +22,45 @@ export class Taschenrechner {
     division(num1, num2) {
         return num1 / num2;
     }
+}
+export class SciTaschenrechner extends Taschenrechner {
     power(num1, num2) {
         let r = num1;
         for (let i = 0; i < num2; i++) {
             r *= num1;
         }
         return r;
+    }
+    factor(n) {
+        if (n === 0) {
+            return 1;
+        }
+        else {
+            return n * this.factor(n - 1);
+        }
+    }
+    euler(n) {
+        let e = 0;
+        for (let i = 0; i < n; i++) {
+            e += 1 / this.factor(i);
+        }
+        return e;
+    }
+    prime(n) {
+        let out = [];
+        let index = 0;
+        for (let j = 0; j < n; j++) {
+            let isPrime = true;
+            for (let i = 2; i <= Math.sqrt(j); i++) {
+                if (j % i === 0)
+                    isPrime = false;
+            }
+            if (isPrime && j > 1) {
+                out[index] = j;
+                index++;
+            }
+        }
+        return out;
     }
     calculate(num1, num2, operand) {
         switch (operand) {
@@ -41,6 +74,10 @@ export class Taschenrechner {
                 return this.division(num1, num2);
             case Operations.Power:
                 return this.power(num1, num2);
+            case Operations.Factorial:
+                return this.factor(num1);
+            case Operations.Euler:
+                return this.euler(num1);
             default:
                 return NaN;
         }
