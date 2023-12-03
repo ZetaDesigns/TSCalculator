@@ -9,7 +9,7 @@ export var Operations;
     Operations[Operations["Euler"] = 6] = "Euler";
     Operations[Operations["Prime"] = 7] = "Prime";
 })(Operations || (Operations = {}));
-export class Taschenrechner {
+export class Calculator {
     addition(num1, num2) {
         return num1 + num2;
     }
@@ -23,11 +23,11 @@ export class Taschenrechner {
         return num1 / num2;
     }
 }
-export class SciTaschenrechner extends Taschenrechner {
+export class SciCalc extends Calculator {
     power(num1, num2) {
         let r = num1;
-        for (let i = 0; i < num2; i++) {
-            r *= num1;
+        for (let i = 1; i < num2; i++) {
+            r = this.multiplication(r, num1);
         }
         return r;
     }
@@ -36,13 +36,13 @@ export class SciTaschenrechner extends Taschenrechner {
             return 1;
         }
         else {
-            return n * this.factor(n - 1);
+            return this.multiplication(n, this.factor(n - 1));
         }
     }
     euler(n) {
         let e = 0;
         for (let i = 0; i < n; i++) {
-            e += 1 / this.factor(i);
+            e = this.addition(e, this.division(1, this.factor(i)));
         }
         return e;
     }

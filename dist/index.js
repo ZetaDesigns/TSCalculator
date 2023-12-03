@@ -1,5 +1,5 @@
-import { Operations, SciTaschenrechner } from "./Taschenrechner.js";
-let calc = new SciTaschenrechner();
+import { Operations, SciCalc } from "./Taschenrechner.js";
+let calc = new SciCalc();
 document.addEventListener("DOMContentLoaded", function () {
     const inputNum1 = document.getElementById("num1");
     const inputNum2 = document.getElementById("num2");
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function processInput(num1, num2, operand) {
     let outputDiv = document.getElementById("output");
     if (validateInputs(num1, num2) || (operand > Operations.Power && validateInputs(num1))) { // the second condition only validates the first number, since operations after power only take one input
-        if (operand === Operations.Prime) {
+        if (operand == Operations.Prime) {
             outputDiv.innerHTML = calc.prime(num1).toString();
         }
         else {

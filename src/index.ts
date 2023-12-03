@@ -1,6 +1,6 @@
-import {Operations, SciTaschenrechner} from "./Taschenrechner.js";
+import {Operations, SciCalc} from "./Taschenrechner.js";
 
-let calc = new SciTaschenrechner();
+let calc = new SciCalc();
 
 document.addEventListener("DOMContentLoaded", function () { // make sure needed HTML elements have been loaded
     const inputNum1 = document.getElementById("num1") as HTMLInputElement;
