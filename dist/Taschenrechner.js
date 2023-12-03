@@ -20,11 +20,19 @@ export class Calculator {
         return num1 * num2;
     }
     division(num1, num2) {
+        if (num2 == 0)
+            return NaN; // division by zero is not defined
         return num1 / num2;
     }
 }
 export class SciCalc extends Calculator {
     power(num1, num2) {
+        if (num2 == 0)
+            return 1; // zero power is 1
+        if (num2 < 0) { // negative exponent: division
+            num2 = this.multiplication(num2, -1);
+            num1 = this.division(1, num1);
+        }
         let r = num1;
         for (let i = 1; i < num2; i++) {
             r = this.multiplication(r, num1);
