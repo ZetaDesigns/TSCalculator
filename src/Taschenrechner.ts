@@ -9,7 +9,14 @@ export enum Operations {
     Prime
 }
 
-export class Calculator {
+interface Taschenrechner {
+    addition : ( num1 : number , num2 : number ) => number ;
+    subtraction : ( num1 : number , num2 : number ) => number ;
+    multiplication : ( num1 : number , num2 : number ) => number ;
+    division : ( num1 : number , num2 : number ) => number ;
+}
+
+export class Calculator implements Taschenrechner {
     addition(num1: number, num2: number): number {
         return num1 + num2;
     }
